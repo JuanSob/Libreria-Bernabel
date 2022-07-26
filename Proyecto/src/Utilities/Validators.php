@@ -4,6 +4,11 @@ namespace Utilities;
 
 class Validators {
 
+    static public function isLetter($valor)
+    {
+        return preg_match("/^[a-zA-ZÁÉÍÓÚÜÑáéíóúüñ\s]*$/", $valor);
+    }
+    
     static public function IsEmpty($valor)
     {
         return preg_match("/^\s*$/", $valor) && true;

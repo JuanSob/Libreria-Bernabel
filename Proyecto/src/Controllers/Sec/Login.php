@@ -20,12 +20,12 @@ class Login extends \Controllers\PublicController
                 $this->hasError = true;
             }
             if (\Utilities\Validators::IsEmpty($this->txtPswd)) {
-                $this->errorPswd = "¡Debe ingresar una contraseña!";
+                $this->errorPswd = "¡Debe ingresar la contraseña!";
                 $this->hasError = true;
             }
             if (! $this->hasError) {
                 if ($dbUser = \Dao\Security\Security::getUsuarioByEmail($this->txtEmail)) {
-                    if ($dbUser["userest"] != \Dao\Security\Estados::ACTIVO) {
+                    if ($dbUser["UsuarioEst"] != \Dao\Security\Estados::ACTIVO) {
                         $this->generalError = "¡Credenciales son incorrectas!";
                         $this->hasError = true;
                         error_log(
@@ -37,7 +37,7 @@ class Login extends \Controllers\PublicController
                             )
                         );
                     }
-                    if (!\Dao\Security\Security::verifyPassword($this->txtPswd, $dbUser["userpswd"])) {
+                    if (!\Dao\Security\Security::verifyPassword($this->txtPswd, $dbUser["UsuarioPswd"])) {
                         $this->generalError = "¡Credenciales son incorrectas!";
                         $this->hasError = true;
                         error_log(
@@ -51,9 +51,9 @@ class Login extends \Controllers\PublicController
                     }
                     if (! $this->hasError) {
                         \Utilities\Security::login(
-                            $dbUser["usercod"],
-                            $dbUser["username"],
-                            $dbUser["useremail"]
+                            $dbUser["UsuarioId"],
+                            $dbUser["UsuarioNombre"],
+                            $dbUser["UsuarioEmail"]
                         );
                         if (\Utilities\Context::getContextByKey("redirto") !== "") {
                             \Utilities\Site::redirectTo(

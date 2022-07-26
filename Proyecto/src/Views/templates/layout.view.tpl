@@ -60,7 +60,7 @@
     </nav>
   </header>
   <main>
-  {{{page_content}}}
+    {{{page_content}}}
   </main>
   <footer class="py-4">
     <div class="container">
