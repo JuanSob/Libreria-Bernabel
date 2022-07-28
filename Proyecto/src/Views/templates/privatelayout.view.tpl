@@ -50,10 +50,10 @@
             {{if ADMINNAVIGATION}}
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                  <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a href="#" class="nav-link dropdown-toggle text-white" id="navDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Gestión de la Plataforma
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navDropDownLink">
+                  <div class="dropdown-menu bg-warning" aria-labelledby="navDropDownLink">
                     {{foreach ADMINNAVIGATION}}
                       <a class="dropdown-item" href="{{nav_url}}">{{if nav_icon}}<i class="{{nav_icon}}"></i>{{endif nav_icon}}{{nav_label}}</a>
                     {{endfor ADMINNAVIGATION}}
@@ -70,7 +70,7 @@
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="#" class="nav-link dropdown-toggle text-white" id="navDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-user mx-2"></i>
                   {{with login}}
                     {{userName}}

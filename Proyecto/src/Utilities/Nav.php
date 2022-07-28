@@ -16,64 +16,64 @@ class Nav {
         {
             $adminNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=admin_admin",
-                "nav_icon"=>"",
-                "nav_label"=>"Inicio"
+                "nav_icon"=>"fas fa-home",
+                "nav_label"=>" Inicio"
             );
         }
         if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\Usuarios")) 
         {
             $adminNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=admin_usuarios",
-                "nav_icon"=>"",
-                "nav_label"=>"Usuarios"
+                "nav_icon"=>"fas fa-child",
+                "nav_label"=>" Usuarios"
             );
         }
         if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\RolesUsuarios")) 
         {
             $adminNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=admin_rolesusuarios",
-                "nav_icon"=>"",
-                "nav_label"=>"Roles para Usuarios Administrativos"
+                "nav_icon"=>"fas fa-star",
+                "nav_label"=>" Roles para Usuarios Administrativos"
             );
         }
         if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\Roles")) 
         {
             $adminNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=admin_roles",
-                "nav_icon"=>"",
-                "nav_label"=>"Roles Administrativos"
+                "nav_icon"=>"fas fa-star",
+                "nav_label"=>" Roles Administrativos"
             );
         }
         if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\FuncionesRoles")) 
         {
             $adminNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=admin_funcionesroles",
-                "nav_icon"=>"",
-                "nav_label"=>"Funciones para Roles Administrativos"
+                "nav_icon"=>"fas fa-star",
+                "nav_label"=>" Funciones para Roles Administrativos"
             );
         }
         if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\Productos")) 
         {
             $adminNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=admin_productos",
-                "nav_icon"=>"",
-                "nav_label"=>"Catálogo de Productos"
+                "nav_icon"=>"fas fa-book",
+                "nav_label"=>" Catálogo de Productos"
             );
         }
         if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\Pedidos")) 
         {
             $adminNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=admin_pedidos",
-                "nav_icon"=>"",
-                "nav_label"=>"Pedidos Pendientes"
+                "nav_icon"=>"fas fa-car",
+                "nav_label"=>" Pedidos Pendientes"
             );
         }
         if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\Ventas")) 
         {
             $adminNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=admin_ventas",
-                "nav_icon"=>"",
-                "nav_label"=>"Historial de Ventas"
+                "nav_icon"=>"fas fa-check-square",
+                "nav_label"=>" Historial de Ventas"
             );
         }
 
