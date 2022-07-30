@@ -1,29 +1,29 @@
 <section class="container-fluid min-vh-100">
 
-    <h3 class="my-4 text-center">Gestión de Funciones para Roles</h3>
+    <h3 class="my-4 text-center display-4 mb-2">Gestión de Funciones para Roles</h3>
     
-    <div class="d-flex-inline">
+    <div class="rounded">
       <form method="POST" action="index.php?page=admin_funcionesroles">
         <div class="form-row">
-          <div class="col-8">
-            <input type="search" class="form-control" id="UsuarioBusqueda" name="UsuarioBusqueda" value="{{UsuarioBusqueda}}" placeholder="Ingrese su busqueda">
+          <div class="col-10">
+            <input type="search" class="form-control rounded" id="UsuarioBusqueda" name="UsuarioBusqueda" value="{{UsuarioBusqueda}}" placeholder="Ingrese su busqueda">
           </div>
-          <div class="col-2">
-            <button type="submit" class="btn btn-primary mb-2" id="btnBuscar" name="btnBuscar">Buscar</button>
+          <div class="">
+            <button type="submit" class="fas fa-search mb-3 rounded" id="btnBuscar" name="btnBuscar">Buscar</button>
           </div>
         </div>
       </form> 
     </div>
   
-    <div class="table-responsive">
+    <div class="table-responsive table-hover rounded">
       <table class="table">
-        <thead class="thead-light">
+        <thead class="thead text-light" style="background-color: #653719">
           <tr>
             <th class="text-center align-middle">Código Rol</th>
             <th class="text-center align-middle">Código Función</th>
             <th class="text-center align-middle">Estado</th>
             <th class="text-center align-middle">Fecha de expiración</th>
-            <th class="text-center align-middle"><button type="button" class="btn btn-primary my-2" id="btnAdd">Nuevo</button></th>
+            <th class="text-center align-middle"><button type="button" class="btn primary my-2" id="btnAdd">Nuevo</button></th>
           </tr>
         </thead>
         <tbody>
@@ -39,7 +39,7 @@
                     <input type="hidden" name="mode" value="UPD" />
                     <input type="hidden" name="RolId" value={{RolId}} />
                     <input type="hidden" name="FuncionId" value={{FuncionId}} />
-                    <button type="submit" class="btn btn-primary my-1">Editar</button>
+                    <button type="submit" class="btn primary my-1">Editar</button>
                 </form>
                 <form action="index.php" method="get">
                     <input type="hidden" name="page" value="admin_funcionrol"/>
