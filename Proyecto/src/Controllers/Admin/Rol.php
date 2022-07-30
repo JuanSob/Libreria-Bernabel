@@ -110,7 +110,7 @@ class Rol extends \Controllers\PrivateController
         {
             $this->aErrors[] = "La descripción del rol no puede ir vacía.";
         }
-        if (\Utilities\Validators::isLetter($this->RolDsc)) 
+        if (!\Utilities\Validators::isLetter($this->RolDsc)) 
         {
             $this->aErrors[] = "únicamente puede escribir letras.";
         }

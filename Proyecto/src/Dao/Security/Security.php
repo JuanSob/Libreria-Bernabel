@@ -58,6 +58,46 @@
             return self::executeNonQuery($sqlIns, $usuario);
         }
 
+        static public function newUsuarioAdmin($UsuarioEmail, $UsuarioNombre, $UsuarioPswd, $UsuarioTipo)
+        {
+            if (!\Utilities\Validators::IsValidEmail($UsuarioEmail)) 
+            {
+                throw new Exception("Correo no es válido");
+            }
+            
+            if (!\Utilities\Validators::IsValidPassword($UsuarioPswd)) 
+            {
+                throw new Exception("Contraseña debe ser almenos 8 caracteres, 1 número, 1 mayúscula, 1 símbolo especial");
+            }      
+            
+            $usuario = self::_usuarioStruct();
+            //Tratamiento de la Contraseña
+            $hashedPassword = self::_hashPassword($UsuarioPswd);
+
+            unset($usuario["UsuarioId"]);
+            unset($usuario["UsuarioFching"]);
+            unset($usuario["UsuarioPswdChg"]);
+
+            $usuario["UsuarioEmail"] = $UsuarioEmail;
+            $usuario["UsuarioNombre"] = $UsuarioNombre;
+            $usuario["UsuarioPswd"] = $hashedPassword;
+            $usuario["UsuarioPswdEst"] = Estados::ACTIVO;
+            $usuario["UsuarioPswdExp"] = date('Y-m-d', time() + 7776000);  //(3*30*24*60*60) (m d h mi s)
+            $usuario["UsuarioEst"] = Estados::ACTIVO;
+            $usuario["UsuarioActCod"] = hash("sha256", $UsuarioEmail.time());
+            $usuario["UsuarioTipo"] = $UsuarioTipo;
+
+            $sqlIns = "INSERT INTO `usuarios` (`UsuarioEmail`, `UsuarioNombre`, `UsuarioPswd`,
+                `UsuarioFching`, `UsuarioPswdEst`, `UsuarioPswdExp`, `UsuarioEst`, `UsuarioActCod`,
+                `UsuarioPswdChg`, `UsuarioTipo`)
+                VALUES
+                ( :UsuarioEmail, :UsuarioNombre, :UsuarioPswd,
+                now(), :UsuarioPswdEst, :UsuarioPswdExp, :UsuarioEst, :UsuarioActCod,
+                now(), :UsuarioTipo);";
+
+            return self::executeNonQuery($sqlIns, $usuario);
+        }
+
         static public function updateUsuarioAdmin($UsuarioId, $UsuarioEmail, $UsuarioNombre, $UsuarioEst,
         $UsuarioTipo)
         {

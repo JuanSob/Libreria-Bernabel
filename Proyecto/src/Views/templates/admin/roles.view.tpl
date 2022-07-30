@@ -22,7 +22,7 @@
           <th class="text-center align-middle">Código</th>
           <th class="text-center align-middle">Descripción</th>
           <th class="text-center align-middle">Estado</th>
-          <th class="text-center align-middle"><button type="button" class="btn primary" id="btnAdd">Nuevo</button></th>
+          <th class="text-center align-middle"><button type="button" class="btn primary my-2" id="btnAdd">Nuevo</button></th>
         </tr>
       </thead>
       <tbody>
