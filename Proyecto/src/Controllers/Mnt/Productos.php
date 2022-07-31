@@ -16,7 +16,7 @@
 // Sección de imports
 // ---------------------------------------------------------------
 use Controllers\PublicController;
-use Dao\Mnt\Productos as DaoProductos;
+use Dao\Mnt\Libros as DaoLibros;
 use Views\Renderer;
 
 /**
@@ -28,7 +28,7 @@ use Views\Renderer;
  * @license  MIT http://
  * @link     http://
  */
-class Productos extends PublicController
+class Libros extends PublicController
 {
     /**
      * Runs the controller
@@ -39,11 +39,10 @@ class Productos extends PublicController
     {
         // code
         $viewData = array();
-        $viewData["Productos"] = DaoProductos::getAll();
+        $viewData["Libros"] = DaoLibros::getAll();
         error_log(json_encode($viewData));
-      
-        Renderer::render('mnt/productos', $viewData);
+
+        Renderer::render('mnt/Libros', $viewData);
     }
 }
-
 ?>

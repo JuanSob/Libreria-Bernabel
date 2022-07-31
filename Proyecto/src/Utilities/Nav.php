@@ -52,12 +52,12 @@ class Nav {
                 "nav_label"=>" Funciones para Roles Administrativos"
             );
         }
-        if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\Productos")) 
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\Libros")) 
         {
             $adminNAVIGATION[] = array(
-                "nav_url"=>"index.php?page=admin_productos",
+                "nav_url"=>"index.php?page=admin_libros",
                 "nav_icon"=>"fas fa-book",
-                "nav_label"=>" Catálogo de Productos"
+                "nav_label"=>" Catálogo de libros"
             );
         }
         if (\Utilities\Security::isAuthorized($userID, "Controllers\Admin\Pedidos")) 

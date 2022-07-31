@@ -1,1 +1,3 @@
-<img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.periodistadigital.com%2Fimagenes%2F2015%2F08%2F08%2Fcristiano-ronaldo-en-calzoncillos.jpg&f=1&nofb=1" alt="">
+<div class="center">
+    <img src="public/imgs/wall.jpg" style="height: 100vh;"> 
+</div>

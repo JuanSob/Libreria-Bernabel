@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
   <!--Bootstrap y CSS-->
-  <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/appstyle.css" />
+  <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/style.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <!--scripts Bootstrap-->

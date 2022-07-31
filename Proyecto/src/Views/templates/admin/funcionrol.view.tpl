@@ -11,10 +11,10 @@
             <input type="hidden" class="width-full center" id="RolId" name="RolId" value="{{RolId}}"/>
             <input readonly type="text" class="width-full center disabled" name="RolIdDummy" value="{{RolId}}"/>
           </div>
-            <div class="row">
-            <label  class="col-12 col-m-4 flex center" for="FuncionId">Código Función</label>
-           <br> <input type="hidden" class="width-full center" {{readonly}} id="FuncionId" name="FuncionId" value="{{FuncionId}}"  maxlength="45" placeholder="Ingrese la descripción de la función"/>
-           <input readonly type="text" class="width-full center" name="FuncionIdDummy" value="{{FuncionId}}"/>
+          <div class="row">
+            <label class="col-12 col-m-4 flex center" for="FuncionId">Código Función</label>
+            <input type="hidden" class="width-full center" {{readonly}} id="FuncionId" name="FuncionId" value="{{FuncionId}}"  maxlength="45" placeholder="Ingrese la descripción de la función"/>
+            <input readonly type="text" class="width-full center disabled" name="FuncionIdDummy" value="{{FuncionId}}"/>
           </div>
           {{endif notDisplayIns}}
 
