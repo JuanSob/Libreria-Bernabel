@@ -27,3 +27,24 @@
         </a>
     </div>
 </section>
+
+<section class="container-fluid" id="productos_recientes">
+
+    <h4 class="my-4 text-center p-3 mb-2 bg-light text-dark">últimos Libros Añadidos</h4>
+    <div class="row">
+        {{foreach items}}
+        <div class="col-lg-3 col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body align-items-center d-flex flex-column justify-content-center">
+                    <a href="index.php?page=visualizarproducto&ProdId={{ProdId}}"><img class="card-img-top mb-4" src="{{MediaPath}}" alt="{{MediaDoc}}" style="width: 200px; max-height: 400px;"></a>
+                    <h4 class="card-title text-center mb-4">
+                        <a href="index.php?page=visualizarproducto&ProdId={{ProdId}}">{{ProdNombre}}</a>
+                    </h4>
+                    <h5 class="mb-4">Lps. {{ProdPrecioVenta}}</h5>
+                    <p class="card-text">{{ProdDescripcion}}</p>
+                </div>
+            </div>
+        </div>
+        {{endfor items}}
+    </div>
+</section>
