@@ -35,13 +35,13 @@ class Libros extends \Dao\Table
 
     static public function searchProductosCliente($UsuarioBusqueda, $Inicio, $Limite)
     {
-        $sqlstr = "SELECT * FROM proyectolibreria.libros p INNER JOIN media m on p.LibrodId = m.LibrodId WHERE LibroEst = 'ACT' AND LibroStock > 0 AND (p.ProdNombre LIKE :UsuarioBusqueda) GROUP BY p.LibrodId LIMIT :Inicio, :Limite;";
+        $sqlstr = "SELECT * FROM proyectolibreria.libros p INNER JOIN media m on p.LibrodId = m.LibrodId WHERE LibroEst = 'ACT' AND LibroStock > 0 AND (p.LibroNombre LIKE :UsuarioBusqueda) GROUP BY p.LibrodId LIMIT :Inicio, :Limite;";
         return self::obtenerRegistros($sqlstr, array("UsuarioBusqueda"=>"%".$UsuarioBusqueda."%", "Inicio"=>intval($Inicio), "Limite"=>intval($Limite)));
     }
 
     static public function searchProductosClienteCount($UsuarioBusqueda)
     {
-        $sqlstr = "SELECT COUNT(LibrodId) as 'Total' FROM proyectolibreria.libros WHERE LibroStock > 0 AND LibroEst = 'ACT' AND (ProdNombre LIKE :UsuarioBusqueda);";
+        $sqlstr = "SELECT COUNT(LibrodId) as 'Total' FROM proyectolibreria.libros WHERE LibroStock > 0 AND LibroEst = 'ACT' AND (LibroNombre LIKE :UsuarioBusqueda);";
         
         return self::obtenerUnRegistro($sqlstr, array("UsuarioBusqueda"=>"%".$UsuarioBusqueda."%"));
     }
