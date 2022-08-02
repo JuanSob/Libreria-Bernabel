@@ -85,12 +85,13 @@ class Nav {
                 "nav_icon"=>"fas fa-home mx-2",
                 "nav_label"=>"Inicio"
             );
-            /*
+            
             $clientNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=catalogoproductos&PageIndex=1",
                 "nav_icon"=>"fas fa-list-alt mx-2",
                 "nav_label"=>"Productos"
             );
+            /*
             $clientNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=carrito",
                 "nav_icon"=>"fas fa-shopping-cart mx-2",
