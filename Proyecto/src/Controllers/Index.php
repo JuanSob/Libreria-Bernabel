@@ -27,10 +27,35 @@ class Index extends PublicController
      *
      * @return void
      */
+
     public function run() :void
     {
-        $viewData = array();
-        \Views\Renderer::render("index", $viewData);
+        $dataview["items"] = \Dao\Client\Libros::getProductosRecientes();
+
+        $max_description_length = 50;
+        
+        foreach($dataview["items"] as $key => $value)
+        {
+            if(strlen($dataview["items"][$key]["LibroNombre"]) > $max_description_length)
+            {
+                $string = $value["LibroNombre"];
+                $offset = ($max_description_length - 3) - strlen($string);
+                $dataview["items"][$key]["LibroNombre"] = substr($string, 0, strrpos($string, ' ', $offset)) . '...';
+            }
+
+            $precioFinal = ($value["LibroPrecioVenta"]) + ($value["LibroPrecioVenta"] * 0.15); 
+            $dataview["items"][$key]["LibroPrecioVenta"] = number_format($precioFinal, 2);
+        }
+
+        $layout = "layout.view.tpl";
+
+        if(\Utilities\Security::isLogged())
+        {
+            $layout = "privatelayout.view.tpl";
+            \Utilities\Nav::setNavContext();
+        }
+
+        \Views\Renderer::render("index", $dataview, $layout);
     }
 }
 ?>
