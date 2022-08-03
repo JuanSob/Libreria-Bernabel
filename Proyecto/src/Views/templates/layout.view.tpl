@@ -54,6 +54,11 @@
                 <i class="fas fa-user-plus"></i>&nbsp;Crear Cuenta
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.php?page=carrito">
+                <i class="fas fa-shopping-cart mx-2"></i>&nbsp;Carrito
+              </a>
+            </li>
           </ul>
         </div>
       </div>

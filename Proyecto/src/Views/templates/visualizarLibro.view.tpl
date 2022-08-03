@@ -35,9 +35,9 @@
                         {{LibroDescripcion}}
                     </p>
                     
-                    <form method="POST" action="index.php?page=visualizarproducto&LibrodId={{LibrodId}}">
-                        <input type="hidden" name="ProdPrecioVenta" value={{LibroPrecioVenta}}>
-                        <input type="hidden" name="ProdStock" value={{LibroStock}}>
+                    <form method="POST" action="index.php?page=VisualizarLibro&LibrodId={{LibrodId}}">
+                        <input type="hidden" name="LibroPrecioVenta" value={{LibroPrecioVenta}}>
+                        <input type="hidden" name="LibroStock" value={{LibroStock}}>
                         <label class="font-weight-bold" for="ProdCantidad">Cantidad</label>
                         <br/>
                         <input class="form-control col-md-2" type="number" id="ProdCantidad" name="ProdCantidad" min="1" value="{{ProdCantidad}}">

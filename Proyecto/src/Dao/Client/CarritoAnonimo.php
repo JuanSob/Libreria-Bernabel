@@ -4,36 +4,36 @@ namespace Dao\Client;
 
 class CarritoAnonimo extends \Dao\Table
 {
-    public static function comprobarProductoEnCarritoAnonimo($ClienteAnonimoId, $ProdId)
+    public static function comprobarProductoEnCarritoAnonimo($ClienteAnonimoId, $LibrodId)
     {
-        $sqlstr = "SELECT * FROM carritocompraclienteanonimo WHERE ClienteAnonimoId = :ClienteAnonimoId AND ProdId = :ProdId;";
-        return self::obtenerUnRegistro($sqlstr, array("ClienteAnonimoId"=>$ClienteAnonimoId, "ProdId"=>$ProdId));
+        $sqlstr = "SELECT * FROM carritocompraclienteanonimo WHERE ClienteAnonimoId = :ClienteAnonimoId AND LibrodId = :LibrodId;";
+        return self::obtenerUnRegistro($sqlstr, array("ClienteAnonimoId"=>$ClienteAnonimoId, "LibrodId"=>$LibrodId));
     }
 
-    public static function insertarProductoCarritoAnonimo($ClienteAnonimoId, $ProdId, $ProdCantidad, $ProdPrecioVenta)
+    public static function insertarProductoCarritoAnonimo($ClienteAnonimoId, $LibrodId, $ProdCantidad, $ProdPrecioVenta)
     {
-        $insstr = "INSERT INTO carritocompraclienteanonimo VALUES (:ClienteAnonimoId, :ProdId, :ProdCantidad, :ProdPrecioVenta, NOW())";
-        return self::executeNonQuery($insstr, array("ClienteAnonimoId"=>$ClienteAnonimoId, "ProdId"=>$ProdId, "ProdCantidad"=>$ProdCantidad, "ProdPrecioVenta"=>$ProdPrecioVenta));
+        $insstr = "INSERT INTO carritocompraclienteanonimo VALUES (:ClienteAnonimoId, :LibrodId, :ProdCantidad, :ProdPrecioVenta, NOW())";
+        return self::executeNonQuery($insstr, array("ClienteAnonimoId"=>$ClienteAnonimoId, "LibrodId"=>$LibrodId, "ProdCantidad"=>$ProdCantidad, "ProdPrecioVenta"=>$ProdPrecioVenta));
     }
 
-    public static function sumarProductoInventarioAnonimo($ProdId, $ProdCantidad)
+    public static function sumarProductoInventarioAnonimo($LibrodId, $ProdCantidad)
     {
-        $updstr = "UPDATE productos SET ProdStock = ProdStock + :ProdCantidad WHERE ProdId = :ProdId";
-        return self::executeNonQuery($updstr, array("ProdId"=>intval($ProdId), "ProdCantidad"=>$ProdCantidad));
+        $updstr = "UPDATE libros SET LibroStock = LibroStock + :ProdCantidad WHERE LibrodId = :LibrodId";
+        return self::executeNonQuery($updstr, array("LibrodId"=>intval($LibrodId), "ProdCantidad"=>$ProdCantidad));
     }
 
-    public static function restarProductoInventarioAnonimo($ProdId, $ProdCantidad)
+    public static function restarProductoInventarioAnonimo($LibrodId, $ProdCantidad)
     {
-        $updstr = "UPDATE productos SET ProdStock = ProdStock - :ProdCantidad WHERE ProdId = :ProdId";
-        return self::executeNonQuery($updstr, array("ProdId"=>intval($ProdId), "ProdCantidad"=>$ProdCantidad));
+        $updstr = "UPDATE libros SET LibroStock = LibroStock - :ProdCantidad WHERE LibrodId = :LibrodId";
+        return self::executeNonQuery($updstr, array("LibrodId"=>intval($LibrodId), "ProdCantidad"=>$ProdCantidad));
     }
 
-    public static function deleteProductoCarritoAnonimo($ClienteAnonimoId, $ProdId)
+    public static function deleteProductoCarritoAnonimo($ClienteAnonimoId, $LibrodId)
     {
-        $delsql = "DELETE FROM carritocompraclienteanonimo WHERE ClienteAnonimoId = :ClienteAnonimoId AND ProdId = :ProdId;";
+        $delsql = "DELETE FROM carritocompraclienteanonimo WHERE ClienteAnonimoId = :ClienteAnonimoId AND LibrodId = :LibrodId;";
         return self::executeNonQuery(
             $delsql,
-            array("ClienteAnonimoId" => $ClienteAnonimoId, "ProdId"=>$ProdId)
+            array("ClienteAnonimoId" => $ClienteAnonimoId, "LibrodId"=>$LibrodId)
         );
     }
 
@@ -45,13 +45,13 @@ class CarritoAnonimo extends \Dao\Table
 
     public static function getProductosCarritoAnonimo($ClienteAnonimoId)
     {
-        $sqlstr = "SELECT ca.*, p.ProdNombre, (ca.ProdCantidad * ca.ProdPrecioVenta) as 'TotalProducto', m.MediaDoc, m.MediaPath FROM carritocompraclienteanonimo ca INNER JOIN productos p on ca.ProdId = p.ProdId INNER JOIN media m on m.ProdId = p.ProdId WHERE ClienteAnonimoId = :ClienteAnonimoId GROUP BY ca.ProdId;"; 
+        $sqlstr = "SELECT ca.*, p.LibroNombre, (ca.ProdCantidad * ca.LibroPrecioVenta) as 'TotalProducto', m.MediaDoc, m.MediaPath FROM carritocompraclienteanonimo ca INNER JOIN libros p on ca.LibrodId = p.LibrodId INNER JOIN media m on m.LibrodId = p.LibrodId WHERE ClienteAnonimoId = :ClienteAnonimoId GROUP BY ca.LibrodId;"; 
         return self::obtenerRegistros($sqlstr, array("ClienteAnonimoId"=>strval($ClienteAnonimoId)));
     }
 
     public static function getTotalCarrito($ClienteAnonimoId)
     {
-        $sqlstr = "SELECT SUM(ca.ProdCantidad * ca.ProdPrecioVenta) as 'Total' FROM carritocompraclienteanonimo ca INNER JOIN productos p on ca.ProdId = p.ProdId WHERE ClienteAnonimoId = :ClienteAnonimoId"; 
+        $sqlstr = "SELECT SUM(ca.ProdCantidad * ca.LibroPrecioVenta) as 'Total' FROM carritocompraclienteanonimo ca INNER JOIN libros p on ca.LibrodId = p.LibrodId WHERE ClienteAnonimoId = :ClienteAnonimoId"; 
         return self::obtenerUnRegistro($sqlstr, array("ClienteAnonimoId"=>$ClienteAnonimoId));
     }
 }
