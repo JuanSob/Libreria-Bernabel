@@ -1,23 +1,23 @@
 <section class="container-fluid min-vh-100">
 
-    <h3 class="my-4 text-center">Gestión de Pedidos Pendientes</h3>
+    <h3 class="my-4 text-center display-4 mb-2">Gestión de Pedidos Pendientes</h3>
 
-    <div class="d-flex-inline">
+    <div class="rounded">
         <form method="POST" action="index.php?page=admin_pedidos">
         <div class="form-row">
-            <div class="col-8">
-            <input type="search" class="form-control" id="UsuarioBusqueda" name="UsuarioBusqueda" value="{{UsuarioBusqueda}}" placeholder="Ingrese su busqueda">
+            <div class="col-10">
+            <input type="search" class="form-control rounded" id="UsuarioBusqueda" name="UsuarioBusqueda" value="{{UsuarioBusqueda}}" placeholder="Ingrese su busqueda">
             </div>
             <div class="col-2">
-            <button type="submit" class="btn btn-primary mb-2" id="btnBuscar" name="btnBuscar">Buscar</button>
+            <button type="submit" class="fas fa-search mb-3 rounded" id="btnBuscar" name="btnBuscar">Buscar</button>
             </div>
         </div>
         </form> 
     </div>
 
-    <div class="table-responsive">
+    <div class="table-responsive table-hover rounded">
         <table class="table">
-        <thead class="thead-light">
+        <thead class="thead text-light" style="background-color: #653719">
             <tr>
             <th class="text-center align-middle">Código</th>
             <th class="text-center align-middle">Fecha</th>
@@ -54,7 +54,7 @@
                     <input type="hidden" name="page" value="admin_pedido"/>
                     <input type="hidden" name="mode" value="UPD" />
                     <input type="hidden" name="VentaId" value={{VentaId}} />
-                    <button type="submit" class="btn btn-primary my-1">Cambiar Estado</button>
+                    <button type="submit" class="btn btn-danger my-1">Cambiar Estado</button>
                 </form>
                 </td>
             </tr>
