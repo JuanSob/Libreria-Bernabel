@@ -16,31 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `rolesusuario`
+-- Dumping events for database 'proyectolibreria'
 --
 
-DROP TABLE IF EXISTS `rolesusuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rolesusuario` (
-  `UsuarioId` int NOT NULL,
-  `RolId` varchar(15) NOT NULL,
-  `RolUsuarioEst` char(3) NOT NULL,
-  `RolUsuarioFch` datetime NOT NULL,
-  `RolUsuarioExp` datetime NOT NULL,
-  PRIMARY KEY (`UsuarioId`,`RolId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
--- Dumping data for table `rolesusuario`
+-- Dumping routines for database 'proyectolibreria'
 --
-
-LOCK TABLES `rolesusuario` WRITE;
-/*!40000 ALTER TABLE `rolesusuario` DISABLE KEYS */;
-INSERT INTO `rolesusuario` VALUES (7,'ADMINISTRADOR','ACT','2021-03-28 00:00:00','2026-03-13 00:00:00');
-/*!40000 ALTER TABLE `rolesusuario` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -51,4 +32,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-30 12:59:00
+-- Dump completed on 2022-08-03 23:39:09

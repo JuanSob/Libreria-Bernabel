@@ -54,7 +54,7 @@
                     <input type="hidden" name="page" value="admin_pedido"/>
                     <input type="hidden" name="mode" value="UPD" />
                     <input type="hidden" name="VentaId" value={{VentaId}} />
-                    <button type="submit" class="btn btn-danger my-1">Cambiar Estado</button>
+                    <button type="submit" class="btn primary my-1">Cambiar Estado</button>
                 </form>
                 </td>
             </tr>

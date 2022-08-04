@@ -16,30 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `carritocompraclienteregistrado`
+-- Table structure for table `roles`
 --
 
-DROP TABLE IF EXISTS `carritocompraclienteregistrado`;
+DROP TABLE IF EXISTS `roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `carritocompraclienteregistrado` (
-  `UsuarioId` int NOT NULL,
-  `LibrodId` int NOT NULL,
-  `ProdCantidad` int NOT NULL,
-  `LibroPrecioVenta` decimal(9,2) NOT NULL,
-  `ProdFechaIngreso` datetime NOT NULL,
-  PRIMARY KEY (`UsuarioId`,`LibrodId`)
+CREATE TABLE `roles` (
+  `RolId` varchar(15) NOT NULL,
+  `RolDsc` varchar(45) NOT NULL,
+  `RolEst` char(5) NOT NULL,
+  PRIMARY KEY (`RolId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `carritocompraclienteregistrado`
+-- Dumping data for table `roles`
 --
 
-LOCK TABLES `carritocompraclienteregistrado` WRITE;
-/*!40000 ALTER TABLE `carritocompraclienteregistrado` DISABLE KEYS */;
-INSERT INTO `carritocompraclienteregistrado` VALUES (9,3,1,316.25,'2022-08-03 15:43:30');
-/*!40000 ALTER TABLE `carritocompraclienteregistrado` ENABLE KEYS */;
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES ('ADMINISTRADOR','Administrador','ACT'),('AYUDANTE','Ayudante','ACT');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-03 15:49:22
+-- Dump completed on 2022-08-03 23:39:09

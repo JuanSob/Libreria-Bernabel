@@ -16,30 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `carritocompraclienteanonimo`
+-- Table structure for table `rolesusuario`
 --
 
-DROP TABLE IF EXISTS `carritocompraclienteanonimo`;
+DROP TABLE IF EXISTS `rolesusuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `carritocompraclienteanonimo` (
-  `ClienteAnonimoId` varchar(300) NOT NULL,
-  `LibrodId` int NOT NULL,
-  `ProdCantidad` int NOT NULL,
-  `LibroPrecioVenta` decimal(9,2) NOT NULL,
-  `ProdFechaIngreso` datetime NOT NULL,
-  PRIMARY KEY (`ClienteAnonimoId`,`LibrodId`)
+CREATE TABLE `rolesusuario` (
+  `UsuarioId` int NOT NULL,
+  `RolId` varchar(15) NOT NULL,
+  `RolUsuarioEst` char(3) NOT NULL,
+  `RolUsuarioFch` datetime NOT NULL,
+  `RolUsuarioExp` datetime NOT NULL,
+  PRIMARY KEY (`UsuarioId`,`RolId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `carritocompraclienteanonimo`
+-- Dumping data for table `rolesusuario`
 --
 
-LOCK TABLES `carritocompraclienteanonimo` WRITE;
-/*!40000 ALTER TABLE `carritocompraclienteanonimo` DISABLE KEYS */;
-INSERT INTO `carritocompraclienteanonimo` VALUES ('6v843gpgfsmebnkio9gqt7ur38',12,1,1035.00,'2022-08-03 14:25:02'),('6v843gpgfsmebnkio9gqt7ur38',13,3,880.90,'2022-08-03 13:40:28'),('6v843gpgfsmebnkio9gqt7ur38',14,1,1380.00,'2022-08-03 13:47:51'),('c7d8n3elc9s6t4vupa9lq5p45i',8,4,967.15,'2022-08-03 00:27:28'),('c7d8n3elc9s6t4vupa9lq5p45i',14,4,1380.00,'2022-08-03 00:07:58');
-/*!40000 ALTER TABLE `carritocompraclienteanonimo` ENABLE KEYS */;
+LOCK TABLES `rolesusuario` WRITE;
+/*!40000 ALTER TABLE `rolesusuario` DISABLE KEYS */;
+INSERT INTO `rolesusuario` VALUES (7,'ADMINISTRADOR','ACT','2021-03-28 00:00:00','2026-03-13 00:00:00');
+/*!40000 ALTER TABLE `rolesusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-03 15:49:22
+-- Dump completed on 2022-08-03 23:39:09

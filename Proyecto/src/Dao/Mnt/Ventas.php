@@ -17,13 +17,13 @@ class Ventas extends \Dao\Table
 
     public static function getProductos($VentaId)
     {
-        $sqlstr = "SELECT vp.LibrodId, LibroNombre, LibroDescripcion, LibroPrecioVenta, VentasProdCantidad FROM VentasProductos vp INNER JOIN Libros p ON vp.LibrodId = p.LibrodId WHERE vp.VentaId=:VentaId;";
+        $sqlstr = "SELECT vp.LibrodId, LibroNombre, LibroDescripcion, LibroPrecioVenta, VentasProdCantidad FROM ventaslibros vp INNER JOIN Libros p ON vp.LibrodId = p.LibrodId WHERE vp.VentaId=:VentaId;";
         return self::obtenerRegistros($sqlstr, array("VentaId"=>$VentaId));
     }
 
     public static function getTotal($VentaId)
     {
-        $sqlstr = "SELECT SUM(VentasProdCantidad * VentasProdPrecioVenta) as 'VentaSubtotal', (SUM(VentasProdCantidad * VentasProdPrecioVenta)) + (SUM(VentasProdCantidad * VentasProdPrecioVenta) * VentaISV) as 'VentaTotal' FROM ventas v INNER JOIN ventasproductos vp ON v.VentaId = vp.VentaId WHERE v.VentaId=:VentaId GROUP BY v.VentaId;";
+        $sqlstr = "SELECT SUM(VentasProdCantidad * VentasProdPrecioVenta) as 'VentaSubtotal', (SUM(VentasProdCantidad * VentasProdPrecioVenta)) + (SUM(VentasProdCantidad * VentasProdPrecioVenta) * VentaISV) as 'VentaTotal' FROM ventas v INNER JOIN ventaslibros vp ON v.VentaId = vp.VentaId WHERE v.VentaId=:VentaId GROUP BY v.VentaId;";
         return self::obtenerRegistros($sqlstr, array("VentaId"=>$VentaId));
     }
 

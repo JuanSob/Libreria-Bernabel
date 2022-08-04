@@ -34,7 +34,7 @@
 
           <div class="row">
             <label class="col-12 col-m-4 flex center" for="ClienteDireccion">Dirección del Cliente</label>
-            <textarea class="width-full center" type="text" class="form-control" readonly id="ClienteDireccion" name="ClienteDireccion" maxlength="300">{{ClienteDireccion}}</textarea>
+            <textarea class="form-control" type="text" class="form-control" readonly id="ClienteDireccion" name="ClienteDireccion" maxlength="300">{{ClienteDireccion}}</textarea>
           </div>
 
           <div class="row">
@@ -52,7 +52,7 @@
             <input class="width-full center" type="text" class="form-control" readonly id="VentaLinkOrden" name="VentaLinkOrden" value="{{VentaLinkOrden}}" maxlength="80">
           </div>
           <br>
-          <div class="table-responsive table-hover rounded">
+          <div class="table-responsive table-hover rounded py-3">
             <table class="table">
             <thead class="thead text-light" style="background-color: #653719">
                 <tr>
@@ -91,13 +91,12 @@
           <label class="col-12 col-m-4 flex center" for="VentaCantidadNeta">Ganancia Neta</label>
           <input class="width-full center" type="text" class="form-control" readonly id="VentaCantidadNeta" name="VentaCantidadNeta" value="{{VentaCantidadNeta}}" maxlength="80">
         </div>
-
-        <br>
-         
-          <button type="button" class="btn btn-block btn-danger" id="btnCancelar" name="btnCancelar">Cancelar</button>
-          {{if showaction}}
-            <button type="submit" class="btn btn-block primary" id="btnGuardar" name="btnGuardar">Cambiar Estado</button>
-          {{endif showaction}}
+          <div class="row center flex-end px-3 py-3">
+            {{if showaction}}
+              <button type="submit" class="btn btn-block primary" id="btnGuardar" name="btnGuardar">Cambiar Estado</button>
+            {{endif showaction}}
+            <button type="button" class="btn btn-block btn-danger" id="btnCancelar" name="btnCancelar">Cancelar</button>
+          </div>
         </form>
       </div>
     </div>

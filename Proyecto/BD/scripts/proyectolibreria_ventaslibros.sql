@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `funciones`
+-- Table structure for table `ventaslibros`
 --
 
-DROP TABLE IF EXISTS `funciones`;
+DROP TABLE IF EXISTS `ventaslibros`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `funciones` (
-  `FuncionId` varchar(255) NOT NULL,
-  `FuncionDsc` varchar(45) NOT NULL,
-  `FuncionEst` char(3) NOT NULL,
-  `FuncionTipo` char(3) NOT NULL,
-  PRIMARY KEY (`FuncionId`)
+CREATE TABLE `ventaslibros` (
+  `LibrodId` int NOT NULL,
+  `VentaId` int NOT NULL,
+  `VentasProdCantidad` int NOT NULL,
+  `VentasProdPrecioVenta` decimal(9,2) NOT NULL,
+  PRIMARY KEY (`LibrodId`,`VentaId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `funciones`
+-- Dumping data for table `ventaslibros`
 --
 
-LOCK TABLES `funciones` WRITE;
-/*!40000 ALTER TABLE `funciones` DISABLE KEYS */;
-INSERT INTO `funciones` VALUES ('Controllers\\Admin\\Admin','Controllers\\Admin\\Admin','ACT','CTR'),('Controllers\\Admin\\FuncionesRoles','Controllers\\Admin\\FuncionesRoles','ACT','CTR'),('Controllers\\Admin\\Pedidos','Controllers\\Admin\\Pedidos','ACT','CTR'),('Controllers\\Admin\\Productos','Controllers\\Admin\\Productos','ACT','CTR'),('Controllers\\Admin\\Rol','Controllers\\Admin\\Rol','ACT','CTR'),('Controllers\\Admin\\Roles','Controllers\\Admin\\Roles','ACT','CTR'),('Controllers\\Admin\\RolesUsuarios','Controllers\\Admin\\RolesUsuarios','ACT','CTR'),('Controllers\\Admin\\Usuario','Controllers\\Admin\\Usuario','ACT','CTR'),('Controllers\\Admin\\Usuarios','Controllers\\Admin\\Usuarios','ACT','CTR'),('Controllers\\Admin\\Ventas','Controllers\\Admin\\Ventas','ACT','CTR'),('MntUsuarios','MntUsuarios','ACT','CTR');
-/*!40000 ALTER TABLE `funciones` ENABLE KEYS */;
+LOCK TABLES `ventaslibros` WRITE;
+/*!40000 ALTER TABLE `ventaslibros` DISABLE KEYS */;
+INSERT INTO `ventaslibros` VALUES (3,8,316,316.25),(7,2,903,903.90),(7,6,903,903.90),(9,5,805,805.00),(9,7,805,805.00),(10,3,828,828.00),(10,8,828,828.00),(11,8,747,747.50),(14,4,1380,1380.00);
+/*!40000 ALTER TABLE `ventaslibros` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-30 12:59:01
+-- Dump completed on 2022-08-03 23:39:08
