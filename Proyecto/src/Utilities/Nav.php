@@ -76,7 +76,7 @@ class Nav {
                 "nav_label"=>" Historial de Ventas"
             );
         }
-
+        
         //TODA LA NAVEGACIÓN PARA LOS CLIENTES
         if($usuario["UsuarioTipo"] === "PBL")
         {   
@@ -91,6 +91,7 @@ class Nav {
                 "nav_icon"=>"fas fa-list-alt mx-2",
                 "nav_label"=>"Productos"
             );
+            
             $clientNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=carrito",
                 "nav_icon"=>"fas fa-shopping-cart mx-2",
