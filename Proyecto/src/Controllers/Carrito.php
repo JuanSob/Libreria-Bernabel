@@ -33,6 +33,18 @@ class Carrito extends \Controllers\PublicController
             }
         }
 
+        if(isset($_POST['btnEliminar']))
+        {
+            if(!\Utilities\Security::isLogged())
+            {
+                $this->eliminarProductoCarritoAnonimo();
+            }
+            else
+            {
+                $this->eliminarProductoCarritoUsuario();
+            }
+        }
+
         $layout = "layout.view.tpl";
 
         if(\Utilities\Security::isLogged())
@@ -48,6 +60,7 @@ class Carrito extends \Controllers\PublicController
     private function mostarProductosCarritoAnonimo()
     {
         $this->Items = \Dao\Client\CarritoAnonimo::getProductosCarritoAnonimo(session_id());
+
         //Reformatear valor desde la base con decimales
         foreach($this->Items as $key => $value)
         {
@@ -68,13 +81,13 @@ class Carrito extends \Controllers\PublicController
 
     private function eliminarProductoCarritoAnonimo()
     {
-        $ProdId = isset($_POST["ProdId"])?$_POST["ProdId"]:"";
+        $LibrodId = isset($_POST["LibrodId"])?$_POST["LibrodId"]:"";
         $ProdCantidad = isset($_POST["ProdCantidad"])?$_POST["ProdCantidad"]:"";
 
-        if(!empty($ProdId) && !empty($ProdCantidad))
+        if(!empty($LibrodId) && !empty($ProdCantidad))
         {
-            $resultDelete = \Dao\Client\CarritoAnonimo::deleteProductoCarritoAnonimo(session_id(), $ProdId);
-            $resultUpdate = \Dao\Client\CarritoAnonimo::sumarProductoInventarioAnonimo($ProdId, $ProdCantidad);
+            $resultDelete = \Dao\Client\CarritoAnonimo::deleteProductoCarritoAnonimo(session_id(), $LibrodId);
+            $resultUpdate = \Dao\Client\CarritoAnonimo::sumarProductoInventarioAnonimo($LibrodId, $ProdCantidad);
 
             if($resultDelete && $resultUpdate)
             {
@@ -92,14 +105,14 @@ class Carrito extends \Controllers\PublicController
         foreach($this->Items as $key => $value)
         {
             $this->Items[$key]["LibroPrecioVenta"] = number_format($value["LibroPrecioVenta"], 2);
-            $this->Items[$key]["TotalProducto"] = number_format($value["TotalProducto"], 2);
+            $this->Items[$key]["TotalLibro"] = number_format($value["TotalLibro"], 2);
 
             $precioSinImpuesto = \Utilities\CalculoPrecios::CalcularPrecioSinImpuesto($value["LibroPrecioVenta"]);
 
             $this->Items[$key]["ProdPrecioSinImpuesto"] = number_format($precioSinImpuesto, 2);
             $this->Items[$key]["ProdImpuesto"] = number_format(($value["LibroPrecioVenta"] - $precioSinImpuesto), 2);
             $this->Subtotal += $precioSinImpuesto;
-            $this->Total += $value["LibroPrecioVenta"];
+            $this->Total += $value["TotalLibro"];
         }
 
         $this->Subtotal = number_format($this->Subtotal, 2);
@@ -109,13 +122,13 @@ class Carrito extends \Controllers\PublicController
     private function eliminarProductoCarritoUsuario()
     {
         $UsuarioId = \Utilities\Security::getUserId();
-        $ProdId = isset($_POST["ProdId"])?$_POST["ProdId"]:"";
+        $LibrodId = isset($_POST["LibrodId"])?$_POST["LibrodId"]:"";
         $ProdCantidad = isset($_POST["ProdCantidad"])?$_POST["ProdCantidad"]:"";
 
-        if(!empty($ProdId) && !empty($ProdCantidad))
+        if(!empty($LibrodId) && !empty($ProdCantidad))
         {   
-            $resultDelete = \Dao\Client\CarritoUsuario::deleteProductoCarritoUsuario($UsuarioId, $ProdId);
-            $resultUpdate = \Dao\Client\CarritoUsuario::sumarProductoInventarioAnonimo($ProdId, $ProdCantidad);
+            $resultDelete = \Dao\Client\CarritoUsuario::deleteProductoCarritoUsuario($UsuarioId, $LibrodId);
+            $resultUpdate = \Dao\Client\CarritoUsuario::sumarProductoInventarioAnonimo($LibrodId, $ProdCantidad);
 
             if($resultDelete && $resultUpdate)
             {

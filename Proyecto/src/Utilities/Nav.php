@@ -91,12 +91,11 @@ class Nav {
                 "nav_icon"=>"fas fa-list-alt mx-2",
                 "nav_label"=>"Productos"
             );
-            /*
             $clientNAVIGATION[] = array(
                 "nav_url"=>"index.php?page=carrito",
                 "nav_icon"=>"fas fa-shopping-cart mx-2",
                 "nav_label"=>"Carrito"
-            );*/
+            );
         }
         \Utilities\Context::setContext("ADMINNAVIGATION", $adminNAVIGATION);
         \Utilities\Context::setContext("CLIENTNAVIGATION", $clientNAVIGATION);

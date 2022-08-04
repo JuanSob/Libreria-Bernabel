@@ -60,6 +60,7 @@ class Login extends \Controllers\PublicController
                                 \Utilities\Context::getContextByKey("redirto")
                             );
                         } else {
+                            $this->transferirArticulosCarritoAnonimo();
                             \Utilities\Site::redirectTo("index.php");
                         }
                     }
@@ -88,16 +89,16 @@ class Login extends \Controllers\PublicController
         {
             foreach($ArticulosCarritoAnonimo as $articulo)
             {
-                $_comprobar = \Dao\Client\CarritoUsuario::comprobarProductoEnCarritoUsuario($userId,$articulo["ProdId"]);
+                $_comprobar = \Dao\Client\CarritoUsuario::comprobarProductoEnCarritoUsuario($userId,$articulo["LibrodId"]);
                 if(empty($_comprobar))
                 {
-                    \Dao\Client\CarritoUsuario::insertarProductoCarritoUsuario($userId,$articulo["ProdId"],$articulo["ProdCantidad"],$articulo["ProdPrecioVenta"]);   
+                    \Dao\Client\CarritoUsuario::insertarProductoCarritoUsuario($userId,$articulo["LibrodId"],$articulo["ProdCantidad"],$articulo["LibroPrecioVenta"]);   
                 }
                 else
                 {
-                    \Dao\Client\CarritoUsuario::sumarProductoInventarioAnonimo($articulo["ProdId"], $_comprobar["ProdCantidad"]);
-                    \Dao\Client\CarritoUsuario::deleteProductoCarritoUsuario($userId, $articulo["ProdId"]);
-                    \Dao\Client\CarritoUsuario::insertarProductoCarritoUsuario($userId,$articulo["ProdId"],$articulo["ProdCantidad"],$articulo["ProdPrecioVenta"]);
+                    \Dao\Client\CarritoUsuario::sumarProductoInventarioAnonimo($articulo["LibrodId"], $_comprobar["ProdCantidad"]);
+                    \Dao\Client\CarritoUsuario::deleteProductoCarritoUsuario($userId, $articulo["LibrodId"]);
+                    \Dao\Client\CarritoUsuario::insertarProductoCarritoUsuario($userId,$articulo["LibrodId"],$articulo["ProdCantidad"],$articulo["LibroPrecioVenta"]);
                 }
             }
 
