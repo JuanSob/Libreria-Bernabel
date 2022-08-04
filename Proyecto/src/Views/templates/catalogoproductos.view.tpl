@@ -15,9 +15,9 @@
         <div class="col-lg-3 col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body align-items-center d-flex flex-column justify-content-center">
-                    <a href="index.php?page=visualizarproducto&ProdId={{LibrodId}}"><img class="card-img-top mb-4" src="{{MediaPath}}" alt="{{MediaDoc}}" style="width: 200px"></a>
+                    <a href="index.php?page=visualizarlibro&LibrodId={{LibrodId}}"><img class="card-img-top mb-4" src="{{MediaPath}}" alt="{{MediaDoc}}" style="width: 200px"></a>
                     <h4 class="card-title text-center mb-4">
-                        <a href="index.php?page=visualizarproducto&ProdId={{LibrodId}}">{{LibroNombre}}</a>
+                        <a href="index.php?page=visualizarlibro&LibrodId={{LibrodId}}">{{LibroNombre}}</a>
                     </h4>
                     <h5 class="mb-4">Lps. {{LibroPrecioVenta}}</h5>
                     <p class="card-text">{{LibroDescripcion}}</p>
@@ -32,19 +32,19 @@
             <ul class="pagination mx-auto"> 
                 <li class="page-item {{PreviousState}}">
                     <a class="page-link" href="index.php?page=catalogoproductos&PageIndex={{Previous}}" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
                     </a>
                 </li>
 
-                  {{foreach PageIndexes}}
-                    <li class="page-item {{Estado}}"><a class="page-link" href="index.php?page=catalogoproductos&PageIndex={{Index}}{{if Busqueda}}&UsuarioBusqueda={{Busqueda}}{{endif Busqueda}}">{{Index}}</a></li>
-                  {{endfor PageIndexes}}
+                    {{foreach PageIndexes}}
+                        <li class="page-item {{Estado}}"><a class="page-link" href="index.php?page=catalogoproductos&PageIndex={{Index}}{{if Busqueda}}&UsuarioBusqueda={{Busqueda}}{{endif Busqueda}}">{{Index}}</a></li>
+                    {{endfor PageIndexes}}
 
                 <li class="page-item {{NextState}}">
                     <a class="page-link" href="index.php?page=catalogoproductos&PageIndex={{Next}}" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
                     </a>
                 </li>
             </ul>
